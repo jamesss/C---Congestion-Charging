@@ -16,6 +16,40 @@ void Date::next(){
 		{month=1; year++;}; 
 }
 
+int Date::get_year() {
+	return year;
+}
+
+int Date::get_month() {
+	return month;
+}
+
+int Date::get_day() {
+	return day;
+}
+
+bool Date::operator==(Date d) {
+	if (d.get_year() == this->year) {
+		if (d.get_month() == this->month) {
+			if (d.get_day() == this->day) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+bool Date::operator!=(Date d) { 
+	if (d.get_year() == this->year) {
+		if (d.get_month() == this->month) {
+			if (d.get_day() == this->day) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
 Date::Date(int d, int m, int y){ 
 	if ( d<1 || d>31 )
 		{cout << d << " illegal day "; d=1;};
