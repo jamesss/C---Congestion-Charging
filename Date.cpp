@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "Date.h"
 
 using namespace std;
@@ -6,6 +7,12 @@ using namespace std;
 void Date::print( ) {
 	cout.width(2);
 	cout << day << "/" << month << "/" << year << endl; 
+}
+
+ostream & operator<<(ostream& os, const Date & d) {
+	os.width(2);
+	os << d.day << "/" << d.month << "/" << d.year << endl; 
+	return os;
 }
 
 void Date::next(){
