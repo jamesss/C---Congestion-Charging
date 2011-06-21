@@ -1,11 +1,16 @@
+/*
+ * Class Vehicle
+ *
+ * @author Robert Kruszewski
+ */
 #include <iostream>
 #include <string>
-#include "Vehicle.h"
+#include <iomanip>
+#include "Vehicle.hpp"
 
 double Vehicle::rate = 1;
 
 Vehicle::Vehicle( string regNo ) {
-	//this->wasCharged = false;
 	this->goesFree = false;
 	this->noAction = false;
 	this->regNo = regNo;
@@ -20,7 +25,6 @@ void Vehicle::set_rate( double rate ) {
 
 void Vehicle::enter(Date date, int time) {
 	if (date != this->lastCharged) {
-	//	this->wasCharged = false;
 		this->goesFree = false;
 		this->noAction = false;
 		this->lastCharged = date;
@@ -33,26 +37,33 @@ void Vehicle::enter(Date date, int time) {
 }
 
 void Vehicle::print_rate() {
+	cout << setprecision (2);
+	cout << fixed;
 	cout << "*** The council sets the basic unit charge to #" << Vehicle::rate << endl;
+	cout << endl;
 }
 
 void Vehicle::print_enter(Date date, int time) {
-	cout << "The" << this->get_id() << "(" << this->regNo << ") enters on" << date << "at " << time << "h00 hours" << endl;
+	cout << setprecision (2);
+	cout << fixed;
+	cout << "*** The " << this->get_id() << " (" << this->regNo << ") enters on " << date << " at " << time << "h00 hours" << endl;
 	print_charge();
 }
 
 void Vehicle::print_charge() {
+	cout << "    ";
 	if(this->goesFree) {
 		cout << "The vehicle goes free (now owes #" << this->owes << ")" << endl;
 	} else if(this->noAction) {
 		cout << "The vehicle has already been charged today ; no action is taken" << endl;
 	} else {
-		cout << "The vehicle is charged #" << this->recentFee << "(now owes #" << this->owes << ")" << endl;
+		cout << "The vehicle is charged #" << this->recentFee << " (now owes #" << this->owes << ")" << endl;
 	}
+	cout << endl;
 }
 
 void Vehicle::print_register() {
-	cout << "A" << this->get_id() << "(" << this->regNo << ") has been registered" << endl; 
-
+	cout << "*** A " << this->get_id() << " (" << this->regNo << ") has been registered" << endl; 
+	cout << endl;
 }
 

@@ -1,6 +1,13 @@
+/*
+ * Class Date
+ *
+ * @author James Simpson
+ * @author Robert Kruszewski
+ */
 #include <iostream>
 #include <fstream>
-#include "Date.h"
+#include <iomanip>
+#include "Date.hpp"
 
 using namespace std;
 
@@ -11,7 +18,10 @@ void Date::print( ) {
 
 ostream & operator<<(ostream& os, const Date & d) {
 	os.width(2);
-	os << d.day << "/" << d.month << "/" << d.year << endl; 
+	os.fill('0');
+	os << d.day << "/";
+	os.width(2);
+   	os << d.month << "/" << d.year; 
 	return os;
 }
 
@@ -23,22 +33,10 @@ void Date::next(){
 		{month=1; year++;}; 
 }
 
-int Date::get_year() {
-	return year;
-}
-
-int Date::get_month() {
-	return month;
-}
-
-int Date::get_day() {
-	return day;
-}
-
-bool Date::operator==(Date d) {
-	if (d.get_year() == this->year) {
-		if (d.get_month() == this->month) {
-			if (d.get_day() == this->day) {
+bool Date::operator==(const Date& d) {
+	if (d.year == this->year) {
+		if (d.month == this->month) {
+			if (d.day == this->day) {
 				return true;
 			}
 		}
@@ -46,10 +44,10 @@ bool Date::operator==(Date d) {
 	return false;
 }
 
-bool Date::operator!=(Date d) { 
-	if (d.get_year() == this->year) {
-		if (d.get_month() == this->month) {
-			if (d.get_day() == this->day) {
+bool Date::operator!=(const Date& d) { 
+	if (d.year == this->year) {
+		if (d.month == this->month) {
+			if (d.day == this->day) {
 				return false;
 			}
 		}

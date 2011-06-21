@@ -1,17 +1,21 @@
+/*
+ * Class PetrolCar
+ *
+ * @author Robert Kruszewski
+ */
 #include <iostream>
 #include <string>
-#include "PetrolCar.h"
-#include "Date.h"
+#include "PetrolCar.hpp"
 
 using namespace std;
 
 PetrolCar::PetrolCar(string regNo) : Vehicle(regNo) {
+	this->type = "petrol car";
 	this->print_register();
 }
 
 void PetrolCar::charge() {
 	if(this->lastChargedHour < 9 || this->lastChargedHour > 18) {
-		//this->wasCharged = false;
 		this->goesFree = true;
 		this->recentFee = 0;
 	} else {
@@ -21,5 +25,5 @@ void PetrolCar::charge() {
 }
 
 string PetrolCar::get_id() {
-	return "petrol car";
+	return this->type;;
 }
