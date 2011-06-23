@@ -15,5 +15,4 @@ class PetrolCar : public Vehicle {
 		~PetrolCar(){};
 		
 		void charge();
-		string get_id();	
 };

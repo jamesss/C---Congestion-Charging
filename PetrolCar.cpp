@@ -23,7 +23,3 @@ void PetrolCar::charge() {
 		this->owes += this->recentFee;
 	}
 }
-
-string PetrolCar::get_id() {
-	return this->type;;
-}

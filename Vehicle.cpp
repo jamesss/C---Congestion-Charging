@@ -67,3 +67,6 @@ void Vehicle::print_register() {
 	cout << endl;
 }
 
+string Vehicle::get_id() {
+	return this->type;
+}

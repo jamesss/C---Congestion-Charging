@@ -33,7 +33,7 @@ class Vehicle {
 		void print_enter(Date, int);
 		void enter(Date,int);
 		
-		virtual string get_id() = 0;
+		virtual string get_id();
 		virtual	void charge() = 0;
 		
 		static void set_rate(double);

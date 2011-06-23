@@ -24,7 +24,6 @@ class Bus : public Vehicle {
 		void board(int);
 		void leave(int);
 		void charge();
-		string get_id();
 };
 
 #endif

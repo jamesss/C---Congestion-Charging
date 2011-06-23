@@ -50,7 +50,3 @@ void Bus::charge() {
 		this->owes += this->recentFee;
 	}	
 }
-
-string Bus::get_id() {
-	return this->type;
-}
